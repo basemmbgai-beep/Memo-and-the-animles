@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ميمو والحيوانات</title>
+<style>
+:root{--bg1:#bfe9ff;--bg2:#fff4c2;--ink:#3a2a6b;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg1:#9fd6f2;--bg2:#ffe9a0}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+html,body{height:100%;margin:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);background:linear-gradient(var(--bg1),var(--bg2));overflow:hidden}
+.s{display:none;height:100%;overflow-y:auto;padding:12px;flex-direction:column;align-items:center;gap:12px}
+.s.on{display:flex}
+h1{margin:0;font-size:26px;text-align:center}
+.logo{width:70px;height:70px;flex:none;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.row{display:flex;gap:12px;width:100%;max-width:420px;direction:ltr}
+.tile{flex:1;aspect-ratio:1.4;border:0;border-radius:28px;font:inherit;font-size:20px;font-weight:700;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 8px 0 rgba(0,0,0,.15);transition:transform .15s}
+.tile:active{transform:scale(.93)}
+.tile b{font-size:44px;line-height:1}
+.wide{width:100%;max-width:420px;flex:none;aspect-ratio:2.8/1;border-radius:28px;border:0;background:#ff8fb1;color:#fff;font:inherit;font-size:20px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 0 rgba(0,0,0,.15)}
+.wide b{font-size:46px}
+.top{width:100%;max-width:420px;display:flex;justify-content:space-between;align-items:center;direction:ltr}
+.x{width:46px;height:46px;border-radius:50%;border:0;background:#fff;font-size:22px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.q{font-size:24px;font-weight:700;text-align:center;background:var(--card);padding:10px 18px;border-radius:20px}
+.cols{display:flex;gap:14px;width:100%;max-width:420px;flex:1;direction:ltr;max-height:430px}
+.col{flex:1;display:flex;flex-direction:column;gap:14px}
+.it{flex:1;border:4px solid #fff;border-radius:24px;background:var(--card);font:inherit;font-size:28px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 0 rgba(0,0,0,.12);transition:transform .2s,background .2s}
+.it .em{font-size:76px;line-height:1}
+.it.sel{background:#ffe27a;border-color:#ff9f1c;transform:scale(1.07) rotate(-2deg);animation:wig .6s ease-in-out infinite}
+@keyframes wig{50%{transform:scale(1.1) rotate(2deg)}}
+.it.ok{background:#fff;border-color:#fff;pointer-events:none;opacity:.3;transform:scale(.95);box-shadow:none}
+.it.bad{animation:shk .4s}
+@keyframes shk{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.big{font-size:120px;animation:bob 1.2s ease-in-out infinite}
+.opts{display:flex;flex-direction:column;gap:12px;width:100%;max-width:420px}
+.opts .it{flex:none;padding:14px;font-size:26px}
+.ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:rgba(255,255,255,.93);z-index:9;padding:20px;text-align:center}
+.ov.on{display:flex}
+.rv{font-size:170px;line-height:1;animation:pop .9s ease-in-out infinite}
+@keyframes pop{0%,100%{transform:scale(1) rotate(-6deg)}50%{transform:scale(1.2) rotate(6deg)}}
+.nm{font-size:44px;font-weight:800}
+.pr{font-size:22px;color:#e0457b;font-weight:700}
+.pad{display:grid;grid-template-columns:repeat(3,76px);gap:12px;direction:ltr}
+.pad button{height:76px;border-radius:50%;border:0;background:#fff;font-size:30px;font-weight:700;color:var(--ink);box-shadow:0 5px 0 rgba(0,0,0,.15)}
+.pad button.sh{animation:shk .25s}
+.pbtn{width:100%;max-width:420px;padding:18px;border:0;border-radius:20px;background:#fff;font:inherit;font-size:20px;font-weight:700;color:var(--ink);box-shadow:0 5px 0 rgba(0,0,0,.12)}
+</style></head><body>
+
+<div id="home" class="s on">
+ <svg class="logo" viewBox="0 0 100 100"><circle cx="50" cy="52" r="44" fill="#ffb02e"/><circle cx="50" cy="55" r="32" fill="#ffd36b"/><circle cx="22" cy="24" r="12" fill="#ff8c1a"/><circle cx="78" cy="24" r="12" fill="#ff8c1a"/><circle cx="39" cy="48" r="5" fill="#3a2a6b"/><circle cx="61" cy="48" r="5" fill="#3a2a6b"/><ellipse cx="50" cy="62" rx="8" ry="6" fill="#e0457b"/><path d="M38 72q12 10 24 0" stroke="#3a2a6b" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+ <h1>ميمو والحيوانات</h1>
+ <div class="row">
+  <button class="tile" style="background:#4cc9a0" onclick="start('names')"><b>🐶</b>تعلّم الأسماء</button>
+  <button class="tile" style="background:#7a8cff" onclick="start('sounds')"><b>🔊</b>تعلّم الأصوات</button>
+ </div>
+ <div class="row">
+  <button class="tile" style="background:#ff9f43" onclick="start('food')"><b>🍎</b>ماذا يأكل؟</button>
+  <button class="tile" style="background:#e056fd" onclick="start('mix')"><b>🎯</b>احزر معنا</button>
+ </div>
+ <button class="wide" onclick="ask('parent')"><b>👨‍👩</b>قائمة الوالدين</button>
+</div>
+
+<div id="quiz" class="s">
+ <div class="top"><button class="x" onclick="ask('parent')">✕</button><div class="q" id="qt"></div></div>
+ <div class="cols" id="cols"></div>
+</div>
+
+<div id="snd" class="s">
+ <div class="top"><button class="x" onclick="ask('parent')">✕</button><div class="q" id="st"></div></div>
+ <div class="big" id="sa"></div>
+ <div class="opts" id="so"></div>
+</div>
+
+<div id="parent" class="s">
+ <h1>👨‍👩 قائمة الوالدين</h1>
+ <button class="pbtn" onclick="show('home')">🏠 القائمة الرئيسية للأطفال</button>
+ <button class="pbtn" onclick="chg()">🔑 تغيير كلمة السر</button>
+ <p style="max-width:380px;text-align:center">كلمة السر الافتراضية: 1010</p>
+</div>
+
+<div id="rev" class="ov"><div class="rv" id="rve"></div><div class="nm" id="rvn"></div><div class="pr" id="rvs"></div><div class="pr" id="rvp"></div></div>
+
+<div id="pin" class="ov"><div class="q">اكتب كلمة السر للخروج</div><div class="pad" id="pad"></div></div>
+
+<script>
+const A=[["🐱","قطة","مياو","السمك"],["🐶","كلب","هاو هاو","العظم"],["🐮","بقرة","موو","العشب"],["🐑","خروف","ماء","العشب"],["🐴","حصان","صهيل","الجزر"],["🦁","أسد","زئير","اللحم"],["🐸","ضفدع","نقيق","الذباب"],["🐔","دجاجة","كوكو","الحَبّ"],["🐘","فيل","ترمبة","الأوراق"],["🐵","قرد","أووو","الموز"],["🐯","نمر","زئير","اللحم"],["🐰","أرنب","صرير خفيف","الجزر"],["🐻","دب","زمجرة","العسل"],["🦆","بطة","كواك","الحَبّ"],["🫏","حمار","نهيق","الجزر"],["🐼","باندا","همهمة","الخيزران"],["🐧","بطريق","نعيق","السمك"],["🐺","ذئب","عواء","اللحم"],["🦓","حمار وحشي","صهيل","العشب"]];
+const K=["قطة","كلب","أسد","قرد","نمر","أرنب"];
+function pick(){if(Math.random()<.55){const k=K[Math.floor(Math.random()*K.length)];return A.find(x=>x[1]==k)}return A[Math.floor(Math.random()*A.length)]}
+const FOODS=["السمك","العظم","العشب","الجزر","اللحم","الذباب","الحَبّ","الأوراق","الموز","العسل","الذرة","الخيزران"];
+const FE={"السمك":"🐟","العظم":"🦴","العشب":"🌿","الجزر":"🥕","اللحم":"🥩","الذباب":"🪰","الحَبّ":"🌾","الأوراق":"🍃","الموز":"🍌","العسل":"🍯","الذرة":"🌽","الخيزران":"🎋"};
+const PRAISE=["أحسنت يا بطل! 🌟","ممتاز! أنت ذكي جداً! 👏","رائع! استمر! 🎉","برافو عليك! 🦸"];
+const $=i=>document.getElementById(i);
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+let pw="1010",mode="",left=0,cur="home",lastScreen="home";
+try{pw=localStorage.getItem("pw")||pw}catch(e){}
+
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="ar-SA";u.pitch=1.4;u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function show(id){document.querySelectorAll(".s").forEach(e=>e.classList.remove("on"));$(id).classList.add("on");cur=id;if(id=="quiz"||id=="snd")lock()}
+function lock(){try{history.pushState({},"")}catch(e){}if(document.documentElement.requestFullscreen)document.documentElement.requestFullscreen().catch(()=>{})}
+addEventListener("popstate",()=>{if(cur=="quiz"||cur=="snd"){history.pushState({},"");ask("parent")}});
+addEventListener("contextmenu",e=>e.preventDefault());
+
+let AC;
+function T(f1,f2,d,t=0,o={}){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume();const n=AC.currentTime+t,s=AC.createOscillator(),g=AC.createGain(),l=AC.createBiquadFilter();s.type=o.ty||"sawtooth";s.frequency.setValueAtTime(f1,n);s.frequency.linearRampToValueAtTime(f2,n+d);l.type="lowpass";l.frequency.value=o.lp||1800;g.gain.setValueAtTime(0,n);g.gain.linearRampToValueAtTime(o.v||.3,n+.04);g.gain.linearRampToValueAtTime(0,n+d);
+if(o.vib){const v=AC.createOscillator(),vg=AC.createGain();v.frequency.value=o.vib;vg.gain.value=f1*.08;v.connect(vg);vg.connect(s.frequency);v.start(n);v.stop(n+d)}
+s.connect(l);l.connect(g);g.connect(AC.destination);s.start(n);s.stop(n+d)}catch(e){}}
+const SN=[
+()=>{T(550,950,.25,0,{lp:2500});T(950,450,.5,.25,{lp:2500})},
+()=>{[0,.3].forEach(t=>T(450,200,.16,t,{ty:"square",lp:1200}))},
+()=>T(140,100,1.3,0,{lp:600,vib:5,v:.5}),
+()=>T(380,330,1,0,{lp:1500,vib:22}),
+()=>{T(700,1300,.4,0,{vib:8});T(1300,500,.8,.4,{vib:10})},
+()=>T(110,55,1.4,0,{lp:700,vib:28,v:.5}),
+()=>{[0,.18,.36,.54].forEach(t=>T(220,130,.12,t,{ty:"square",lp:700}))},
+()=>{[0,.15,.3,.45].forEach(t=>T(900,600,.1,t,{ty:"square",lp:2500,v:.2}))},
+()=>{T(300,750,.5,0,{lp:2200,vib:6});T(750,350,.6,.5,{lp:2200,vib:6})},
+()=>{[0,.2,.4,.6,.8].forEach((t,i)=>T(500+i*40,900,.15,t,{ty:"square",lp:2000,v:.2}))},
+()=>T(160,70,1.2,0,{lp:900,vib:30,v:.5}),
+()=>{[0,.14].forEach(t=>T(1500,2000,.08,t,{ty:"sine",v:.15}))},
+()=>{T(90,70,1.2,0,{lp:500,vib:12,v:.5});T(140,80,.5,.2,{lp:600,vib:20,v:.3})},
+()=>{[0,.25,.5].forEach(t=>T(500,350,.15,t,{lp:1400,vib:40,v:.25}))},
+()=>{T(450,850,.55,0,{vib:6});T(850,500,.3,.55,{vib:6});T(300,220,.5,.95,{lp:700})},
+()=>T(250,200,.6,0,{lp:700,vib:8,v:.35}),
+()=>{[0,.3].forEach(t=>T(450,350,.25,t,{lp:1200,vib:15}))},
+()=>{T(300,650,.8,0,{ty:"triangle",lp:1500,vib:5,v:.4});T(650,350,1.1,.8,{ty:"triangle",lp:1500,vib:5,v:.4})},
+()=>{T(600,1100,.4,0,{vib:10});T(1100,450,.6,.4,{vib:10})}
+];
+const FN=["cat","dog","cow","sheep","horse","lion","frog","chicken","elephant","monkey","tiger","rabbit","bear","duck","donkey","panda","penguin","wolf","zebra"];
+function playSnd(i){let f=0;const alt=()=>{if(!f){f=1;try{SN[i]()}catch(e){}}};try{const a=new Audio("sounds/"+FN[i]+".mp3");a.onerror=alt;a.play().catch(alt)}catch(e){alt()}}
+function start(m){mode=m;left=m=="mix"?8:5;next()}
+function next(){
+ if(left<=0){speak("أحسنت! أنهيت كل الأسئلة");show("home");return}
+ left--;const m=mode=="mix"?rnd(["names","name2","sounds","food"]):mode;
+ if(m=="names")matchPage();else qPage(m=="name2"?"name":m=="sounds"?"sound":"food");
+}
+function reveal(a,cb){
+ $("rve").textContent=a[0];$("rvn").textContent=a[1];$("rvs").textContent="صوته: "+a[2];$("rvp").textContent=rnd(PRAISE);
+ $("rev").classList.add("on");playSnd(A.indexOf(a));setTimeout(()=>speak(a[1]+"، "+rnd(["أحسنت!","برافو!","ممتاز!"])),1700);
+ setTimeout(()=>{$("rev").classList.remove("on");cb()},4800);
+}
+
+function matchPage(){
+ show("quiz");$("qt").textContent="طابق الصورة مع الاسم";speak("طابق الصورة مع اسمها");
+ const p=[pick()];while(p.length<2){const z=pick();if(z!==p[0])p.push(z)}let done=0,si=null,sn=null;
+ const c=$("cols");c.innerHTML="";
+ const L=document.createElement("div"),R=document.createElement("div");L.className=R.className="col";
+ const mk=(t,k,box)=>{const b=document.createElement("button");b.className="it";b.innerHTML=k=="i"?'<span class="em">'+t[0]+'</span>':t[1];b.onclick=()=>{
+  if(b.classList.contains("ok"))return;
+  if(b.classList.contains("sel")){b.classList.remove("sel");k=="i"?si=null:sn=null;return}
+  box.querySelectorAll(".sel").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");
+  k=="i"?si={b,t}:sn={b,t};
+  if(si&&sn){const a=si,n=sn;si=sn=null;
+   if(a.t===n.t){a.b.className=n.b.className="it ok";done++;reveal(a.t,()=>{if(done==2)next()})}
+   else{[a.b,n.b].forEach(x=>{x.classList.remove("sel");x.classList.add("bad");setTimeout(()=>x.classList.remove("bad"),400)});speak("حاول مرة أخرى")}}
+ };box.appendChild(b)};
+ shuf(p).forEach(t=>mk(t,"i",L));shuf(p).forEach(t=>mk(t,"n",R));
+ c.append(L,R);
+}
+
+function qPage(type){
+ show("snd");const a=pick(),food=type=="food",nm=type=="name",sd=type=="sound";
+ const q=nm?"ما اسم هذا الحيوان؟":food?"ماذا يأكل هذا الحيوان؟":"ما هو صوت هذا الحيوان؟";
+ $("st").textContent=q;$("sa").textContent=sd?"🔊":a[0];$("sa").onclick=null;if(sd){$("sa").onclick=()=>playSnd(A.indexOf(a));setTimeout(()=>playSnd(A.indexOf(a)),1900)}speak(q);
+ const ans=nm||sd?a[1]:food?a[3]:a[2];
+ const pool=nm||sd?A.map(x=>x[1]).filter(x=>x!=ans):food?FOODS.filter(x=>x!=ans):A.map(x=>x[2]).filter(x=>x!=ans);
+ const o=shuf([ans,...shuf(pool).slice(0,1)]);const box=$("so");box.innerHTML="";box.style.flexDirection=food||sd?"row":"column";
+ o.forEach(t=>{const b=document.createElement("button");b.className="it";if(food){b.innerHTML='<span class="em">'+FE[t]+'</span>';b.style.flex="1";b.style.aspectRatio="1"}else if(sd){b.innerHTML='<span class="em">'+A.find(x=>x[1]==t)[0]+'</span>';b.style.flex="1";b.style.aspectRatio="1"}else b.textContent=t;b.onclick=()=>{
+  if(t===ans){b.classList.add("ok");reveal(a,next)}
+  else{b.classList.add("bad");setTimeout(()=>b.classList.remove("bad"),400);speak("حاول مرة أخرى")}};box.appendChild(b)});
+}
+
+let ent="",target="";
+function ask(t){target=t;ent="";lastScreen=cur;const p=$("pad");p.innerHTML="";
+ [1,2,3,4,5,6,7,8,9,"",0].forEach(n=>{const b=document.createElement("button");b.textContent=n;if(n==="")b.style.visibility="hidden";
+  else b.onclick=()=>{b.classList.remove("sh");void b.offsetWidth;b.classList.add("sh");press(String(n))};p.appendChild(b)});
+ $("pin").classList.add("on")}
+function press(d){ent+=d;
+ if(!pw.startsWith(ent)){$("pin").classList.remove("on");return}   // خطأ: العودة للأسئلة
+ if(ent===pw){$("pin").classList.remove("on");show(target)}}
+function chg(){const n=prompt("اكتب كلمة سر جديدة (أرقام فقط)");if(n&&/^\d{3,8}$/.test(n)){pw=n;try{localStorage.setItem("pw",n)}catch(e){}alert("تم الحفظ")}}
+</script></body></html>
